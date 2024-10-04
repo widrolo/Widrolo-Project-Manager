@@ -40,6 +40,7 @@
     <ClInclude Include="Widgets\ProjectExplorer.h">
       <Filter>Widgets</Filter>
     </ClInclude>
+    <ClInclude Include="ProjectTree.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ImGUI\imgui.cpp">
@@ -67,5 +68,6 @@
       <Filter>Widgets</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="ProjectTree.cpp" />
   </ItemGroup>
 </Project>

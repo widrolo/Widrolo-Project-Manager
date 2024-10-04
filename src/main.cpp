@@ -10,7 +10,10 @@
 #endif
 #include <GLFW/glfw3.h>
 
+#include <ProjectTree.h>
 #include <Widgets/ProjectExplorer.h>
+
+
 
 static void glfw_error_callback(int error, const char* description)
 {
@@ -53,7 +56,9 @@ int main()
 
     ImVec4 clear_color = ImVec4(0, 0, 0, 1.00f);
 
+    ProjectTree pt{};
     ProjectExplorer pe{};
+    pe.Init(&pt);
 
     while (!glfwWindowShouldClose(window))
     {

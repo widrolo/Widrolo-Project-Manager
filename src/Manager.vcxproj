@@ -153,6 +153,7 @@
     <ClInclude Include="ImGUI\imstb_textedit.h" />
     <ClInclude Include="ImGUI\imstb_truetype.h" />
     <ClInclude Include="ImGuiInclude.h" />
+    <ClInclude Include="ProjectTree.h" />
     <ClInclude Include="Widgets\ProjectExplorer.h" />
   </ItemGroup>
   <ItemGroup>
@@ -163,6 +164,7 @@
     <ClCompile Include="ImGUI\imgui_impl_opengl3.cpp" />
     <ClCompile Include="ImGUI\imgui_tables.cpp" />
     <ClCompile Include="ImGUI\imgui_widgets.cpp" />
+    <ClCompile Include="ProjectTree.cpp" />
     <ClCompile Include="Widgets\ProjectExplorer.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
