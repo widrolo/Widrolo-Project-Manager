@@ -41,6 +41,7 @@ int main()
     ImGuiIO& io = ImGui::GetIO(); (void)io;
     io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;     // Enable Keyboard Controls
     io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
+    io.IniFilename = nullptr;
 
     // Setup Dear ImGui style
     ImGui::StyleColorsDark();
@@ -53,7 +54,6 @@ int main()
     ImVec4 clear_color = ImVec4(0, 0, 0, 1.00f);
 
     ProjectExplorer pe{};
-
 
     while (!glfwWindowShouldClose(window))
     {

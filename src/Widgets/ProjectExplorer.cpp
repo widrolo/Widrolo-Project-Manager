@@ -12,16 +12,16 @@ void ProjectExplorer::ShowWindow()
     window_flags |= ImGuiWindowFlags_NoCollapse;
     window_flags |= ImGuiWindowFlags_MenuBar;
 
-    const ImGuiViewport* main_viewport = ImGui::GetMainViewport();
-    ImGui::SetNextWindowPos(ImVec2(0, 0), ImGuiCond_FirstUseEver);
-    ImGui::SetNextWindowSize(ImVec2(main_viewport->WorkSize.x / 3, main_viewport->WorkSize.y), ImGuiCond_FirstUseEver);
-
     // For some odd reason, the three spaces need to be here
-    if (!ImGui::Begin("Asset Explorer   ", nullptr, window_flags))
+    if (!ImGui::Begin("Asset Explorer", nullptr, window_flags))
     {
         ImGui::End();
         return;
     }
+
+    const ImGuiViewport* main_viewport = ImGui::GetMainViewport();
+    ImGui::SetWindowPos(ImVec2(0, 0), ImGuiCond_FirstUseEver);
+    ImGui::SetWindowSize(ImVec2(main_viewport->WorkSize.x / 3, main_viewport->WorkSize.y), ImGuiCond_FirstUseEver);
 
     ShowMenuBar();
     ImGui::PushItemWidth(ImGui::GetFontSize() * -12);

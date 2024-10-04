@@ -152,10 +152,10 @@
     <ClInclude Include="ImGUI\imstb_rectpack.h" />
     <ClInclude Include="ImGUI\imstb_textedit.h" />
     <ClInclude Include="ImGUI\imstb_truetype.h" />
+    <ClInclude Include="ImGuiInclude.h" />
     <ClInclude Include="Widgets\ProjectExplorer.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ImGuiInclude.h" />
     <ClCompile Include="ImGUI\imgui.cpp" />
     <ClCompile Include="ImGUI\imgui_demo.cpp" />
     <ClCompile Include="ImGUI\imgui_draw.cpp" />
@@ -163,8 +163,8 @@
     <ClCompile Include="ImGUI\imgui_impl_opengl3.cpp" />
     <ClCompile Include="ImGUI\imgui_tables.cpp" />
     <ClCompile Include="ImGUI\imgui_widgets.cpp" />
-    <ClCompile Include="main.cpp" />
     <ClCompile Include="Widgets\ProjectExplorer.cpp" />
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
