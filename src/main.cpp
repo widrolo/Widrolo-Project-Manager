@@ -11,6 +11,7 @@
 #include <GLFW/glfw3.h>
 
 #include <ProjectTree.h>
+#include <Widgets/AssetDisplay.h>
 #include <Widgets/ProjectExplorer.h>
 
 
@@ -88,8 +89,10 @@ int main()
     ImVec4 clear_color = ImVec4(0, 0, 0, 1.00f);
 
     ProjectTree pt{};
+    AssetDisplay ad{};
     ProjectExplorer pe{};
-    pe.Init(&pt);
+    pe.Init(&pt, &ad);
+    ad.Init();
 
     Style();
 
@@ -106,8 +109,23 @@ int main()
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
 
-        Menubar();
+        if (ImGui::BeginMainMenuBar()) {
+            if (ImGui::BeginMenu("File")) {
+                if (ImGui::MenuItem("Create")) {
+                }
+                if (ImGui::MenuItem("Open", "Ctrl+O")) {
+                    pt.LoadRandomTree();
+                }
+                if (ImGui::MenuItem("Save", "Ctrl+S")) {
+                }
+                if (ImGui::MenuItem("Save as..")) {
+                }
+                ImGui::EndMenu();
+            }
+            ImGui::EndMainMenuBar();
+        }
 
+        ad.ShowWindow();
         pe.ShowWindow();
 
         // Rendering

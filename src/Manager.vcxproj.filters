@@ -41,6 +41,7 @@
       <Filter>Widgets</Filter>
     </ClInclude>
     <ClInclude Include="ProjectTree.h" />
+    <ClInclude Include="Widgets\AssetDisplay.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ImGUI\imgui.cpp">
@@ -69,5 +70,6 @@
     </ClCompile>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ProjectTree.cpp" />
+    <ClCompile Include="Widgets\AssetDisplay.cpp" />
   </ItemGroup>
 </Project>

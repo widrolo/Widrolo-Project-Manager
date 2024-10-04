@@ -29,6 +29,8 @@ struct DataNode
 {
 	std::string name;
 	DataType type;
+
+	void* parent; // PathNode
 };
 
 struct PathNode
@@ -56,6 +58,8 @@ private:
 public:
 	const PathNode* GetRoot() const;
 	void SaveTree(std::filesystem::path path);
+
+	void LoadRandomTree();
 
 	PathNode* MakeNode(PathNode* parent, std::string name, std::string prefix) const;
 	DataNode* MakeDataNode(PathNode* parent, std::string name, DataType type) const;

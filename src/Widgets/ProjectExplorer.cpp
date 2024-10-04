@@ -36,9 +36,10 @@ void ProjectExplorer::ShowWindow()
         DataNodeCreator();
 }
 
-void ProjectExplorer::Init(ProjectTree* tree)
+void ProjectExplorer::Init(ProjectTree* tree, AssetDisplay* ad)
 {
     this->tree = tree;
+    this->ad = ad;
 }
 
 void ProjectExplorer::ShowMenuBar()
@@ -97,6 +98,11 @@ void ProjectExplorer::TraverseBranch(PathNode* start)
 
         if (start->childNodes.size() == 0)
         {
+            // Bad Code, idk
+            for (size_t i = 0; i < start->data.size(); i++)
+            {
+                ShowDataNodes(start->data[i], i);
+            }
             ImGui::TreePop();
             return;
         }
@@ -104,8 +110,27 @@ void ProjectExplorer::TraverseBranch(PathNode* start)
         {
             TraverseBranch(start->childNodes[i]);
         }
+
+        for (size_t i = 0; i < start->data.size(); i++)
+        {
+            ShowDataNodes(start->data[i], i);
+        }
+
+        
+
         ImGui::TreePop();
     }
+}
+
+void ProjectExplorer::ShowDataNodes(DataNode* data, int i)
+{
+    static ImGuiTreeNodeFlags base_flags = ImGuiTreeNodeFlags_OpenOnArrow | ImGuiTreeNodeFlags_OpenOnDoubleClick | ImGuiTreeNodeFlags_SpanAvailWidth;
+    ImGuiTreeNodeFlags node_flags = base_flags;
+    node_flags |= ImGuiTreeNodeFlags_Leaf | ImGuiTreeNodeFlags_NoTreePushOnOpen;
+
+    ImGui::TreeNodeEx((void*)(intptr_t)i, node_flags, data->name.c_str(), i);
+    if (ImGui::IsItemClicked() && !ImGui::IsItemToggledOpen())
+        ad->selectedNode = data;
 }
 
 void ProjectExplorer::AddableType(std::string name, std::string prefix)
