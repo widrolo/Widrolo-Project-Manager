@@ -20,6 +20,37 @@ static void glfw_error_callback(int error, const char* description)
     fprintf(stderr, "GLFW Error %d: %s\n", error, description);
 }
 
+void Style()
+{
+    ImGuiStyle& style = ImGui::GetStyle();
+
+    // Rounding
+    style.FrameRounding = 3;
+    style.WindowRounding = 3;
+    style.PopupRounding = 3;
+
+    style.WindowTitleAlign = ImVec2(0.5, 0.5);
+
+}
+
+void Menubar()
+{
+    if (ImGui::BeginMainMenuBar()) {
+        if (ImGui::BeginMenu("File")) {
+            if (ImGui::MenuItem("Create")) {
+            }
+            if (ImGui::MenuItem("Open", "Ctrl+O")) {
+            }
+            if (ImGui::MenuItem("Save", "Ctrl+S")) {
+            }
+            if (ImGui::MenuItem("Save as..")) {
+            }
+            ImGui::EndMenu();
+        }
+        ImGui::EndMainMenuBar();
+    }
+}
+
 int main()
 {
     glfwSetErrorCallback(glfw_error_callback);
@@ -31,7 +62,7 @@ int main()
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
 
     // Create window with graphics context
-    GLFWwindow* window = glfwCreateWindow(1280, 720, "Dear ImGui GLFW+OpenGL2 example", nullptr, nullptr); 
+    GLFWwindow* window = glfwCreateWindow(1280, 720, "Widrolo Project Manager", nullptr, nullptr); 
     if (window == nullptr) 
         return 1;
     glfwMakeContextCurrent(window); 
@@ -60,6 +91,8 @@ int main()
     ProjectExplorer pe{};
     pe.Init(&pt);
 
+    Style();
+
     while (!glfwWindowShouldClose(window))
     {
         glfwPollEvents();
@@ -72,6 +105,8 @@ int main()
         ImGui_ImplOpenGL3_NewFrame();
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
+
+        Menubar();
 
         pe.ShowWindow();
 

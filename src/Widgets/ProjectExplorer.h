@@ -10,10 +10,13 @@ private:
 
 	// Node Creator
 	bool nodeCreatorOpen = false;
+	bool dataNodeCreatorOpen = false;
 	PathNode* creatorSelectedNode;
+
 
 	std::array<char, 32> newNodeName;
 	std::array<char, 32> newNodePrefix;
+	DataType newNodeType;
 
 public:
 	void ShowWindow();
@@ -28,4 +31,8 @@ private:
 	void NodeCreator();
 	void ProcessNewNode();
 	void PrepareNewNode();
+
+	void DataNodeCreator();
+	void ProcessNewDataNode();
+	void PrepareNewDataNode();
 };
